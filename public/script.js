@@ -1,4 +1,4 @@
-const serverIp = 'localhost'; // Cambia esto a la IP de tu PC
+const serverIp = '192.168.1.xxx'; // Cambia esto a la IP de tu PC
 const serverPort = 3000; // Cambia esto si estás usando un puerto diferente
 
 document.addEventListener('DOMContentLoaded', () => {
