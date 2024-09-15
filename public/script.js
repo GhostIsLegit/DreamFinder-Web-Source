@@ -54,7 +54,7 @@ function getPasswordInfo(password, hashType) {
         const sha512Match = password.match(sha512CustomPattern);
         return { hash: sha512Match[2], salt: sha512Match[1] };
     }
-    return { hash: '', salt: '' };
+    return { hash: password, salt: '' }; // Considerar como PlainText por defecto
 }
 
 function displayResults(results) {
@@ -85,28 +85,21 @@ function displayResults(results) {
             const hashType = determineHashType(result.password);
             console.log(`Password: ${result.password}, HashType: ${hashType}`);
 
-            let hashSaltText = '';
-            let detailedText = '';
-            let passwordText = '';
+            const { hash, salt } = getPasswordInfo(result.password, hashType);
+            let displayText = hashType === 'PlainText' ? result.password : hash;
 
-            if (hashType === 'SHA512Custom') {
-                hashSaltText = `${result.password.split('$')[1]}:${result.password.split('$')[2]}`;
-                detailedText = `Name: ${result.name || 'Unknown'}, IP: ${result.ip || 'N/A'}, Hash: ${result.password.split('$')[1]}, Salt: ${result.password.split('$')[2]}, Password: ${result.password}`;
-                passwordText = 'Encrypted'; // Puedes personalizar esto según tus necesidades
-            } else {
-                const { hash, salt } = getPasswordInfo(result.password, hashType);
-                hashSaltText = salt ? `${hash}:${salt}` : hash;
-                detailedText = `Name: ${result.name || 'Unknown'}, IP: ${result.ip || 'N/A'}, Hash: ${hash}, Salt: ${salt ? salt : 'N/A'}, Password: ${result.password}`;
-                passwordText = hashType === 'PlainText' ? result.password : 'Encrypted';
+            if (salt) {
+                displayText += `:${salt}`;
             }
+
+            const detailedText = `Name: ${result.name || 'Unknown'}, IP: ${result.ip || 'N/A'}, Hash: ${hash}, Salt: ${salt || 'N/A'}, Password: ${result.password}`;
 
             resultCard.innerHTML = `
                 <p><strong>Name:</strong> ${result.name || 'Unknown'}</p>
                 <p><strong>IP:</strong> ${result.ip || 'N/A'}</p>
-                <p><strong>Password:</strong> ${passwordText}</p>
+                <p><strong>Password:</strong> ${displayText}</p>
                 <p>
-                    <button class="copy-button" data-text="${hashSaltText}">Copy Hash & Salt</button>
-                    <button class="copy-button detailed" data-text="${detailedText}">Copy All</button>
+                    <button class="copy-button" data-text="${detailedText}">Copy All</button>
                 </p>
             `;
             fileSection.appendChild(resultCard);
@@ -159,4 +152,4 @@ function copyToClipboard(text) {
         }
         document.body.removeChild(textarea);
     }
-}
+}   
