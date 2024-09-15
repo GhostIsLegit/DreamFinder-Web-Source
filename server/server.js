@@ -7,11 +7,10 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-let databaseCache = {}; // Para almacenar las bases de datos en RAM
+let databaseCache = {};
 
-// Cargar todas las bases de datos en la RAM al inicio
 const loadDatabasesIntoMemory = () => {
-    const dirPath = path.join(__dirname, '../dbs');
+    const dirPath = path.join(__dirname, '../dbs/');
     
     fs.readdir(dirPath, (err, files) => {
         if (err) {
@@ -47,23 +46,17 @@ const loadDatabasesIntoMemory = () => {
     });
 };
 
-// Llamar a la función para cargar bases de datos al iniciar
 loadDatabasesIntoMemory();
 
-// Habilita CORS para permitir solicitudes desde otros orígenes
 app.use(cors());
+app.use(express.static(path.join(__dirname, '../public/')));
+app.use('../dbs', express.static(path.join(__dirname, '../dbs/')));
 
-// Servir archivos estáticos
-app.use(express.static(path.join(__dirname, '../public')));
-app.use('/dbs', express.static(path.join(__dirname, '../dbs')));
-
-// Ruta para listar archivos
 app.get('/list-files', (req, res) => {
     const files = Object.keys(databaseCache);
     res.json(files);
 });
 
-// Ruta de búsqueda
 app.get('/search', (req, res) => {
     const userSearchTerm = req.query.user ? req.query.user : '';
     const ipSearchTerm = req.query.ip ? req.query.ip.toLowerCase() : '';
@@ -71,15 +64,13 @@ app.get('/search', (req, res) => {
 
     console.log(`Received search request - User: "${userSearchTerm}", IP: "${ipSearchTerm}"`);
 
-    // Buscar en los datos en memoria
     for (const [file, jsonData] of Object.entries(databaseCache)) {
-        console.log(`Searching in file ${file}`); // Línea de depuración
+        console.log(`Searching in file ${file}`);
         const filteredData = jsonData.filter(item => 
-            (userSearchTerm && item.name && item.name === userSearchTerm) ||  // Comparación exacta del nombre
-            (ipSearchTerm && item.ip && item.ip.toLowerCase() === ipSearchTerm) // Comparación exacta de IP
+            (userSearchTerm && item.name && item.name === userSearchTerm) ||  
+            (ipSearchTerm && item.ip && item.ip.toLowerCase() === ipSearchTerm)
         );
         
-        // Añadir el nombre del archivo (sin la extensión) a cada resultado
         const fileNameWithoutExtension = path.basename(file, '.json');
         results = results.concat(filteredData.map(result => ({
             ...result,
@@ -87,12 +78,11 @@ app.get('/search', (req, res) => {
         })));
     }
 
-    console.log(`Results found: ${results.length}`); // Mostrar cantidad de resultados encontrados
+    console.log(`Results found: ${results.length}`);
 
     res.json(results);
 });
 
-// Ruta para obtener las IPs locales
 app.get('/local-ips', (req, res) => {
     const networkInterfaces = os.networkInterfaces();
     const ips = [];
@@ -112,13 +102,11 @@ app.get('/local-ips', (req, res) => {
     }
 });
 
-// Escucha en todas las interfaces de red disponibles
 app.listen(port, '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
     console.log('Local IPs:', getLocalIPs());
 });
 
-// Función para obtener IPs locales
 function getLocalIPs() {
     const networkInterfaces = os.networkInterfaces();
     const ips = [];
