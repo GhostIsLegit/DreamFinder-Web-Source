@@ -1,5 +1,6 @@
 # DreamFinder Guide
 
+
 DreamFinder es una herramienta web diseñada para buscar y visualizar información sobre credenciales de inicio de sesión y direcciones IP. Aunque su uso principal está orientado al análisis y administración de información, también puede ser utilizada para actividades como el griefing de servidores de Minecraft y otros fines similares.
 Advertencia de Seguridad
 
