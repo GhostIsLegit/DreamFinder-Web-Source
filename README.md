@@ -1,3 +1,5 @@
+# DreamFinder Guide
+
 DreamFinder es una herramienta web diseñada para buscar y visualizar información sobre credenciales de inicio de sesión y direcciones IP. Aunque su uso principal está orientado al análisis y administración de información, también puede ser utilizada para actividades como el griefing de servidores de Minecraft y otros fines similares.
 Advertencia de Seguridad
 
@@ -7,7 +9,7 @@ Nota sobre las Bases de Datos
 No se proporcionarán bases de datos para las búsquedas. Debes crear la carpeta dbs en la raíz del proyecto y colocar tus propias bases de datos en esta carpeta. Asegúrate de que los archivos de base de datos estén en el formato y ubicación esperados para que la aplicación pueda acceder a ellos correctamente.
 Instalación
 
-# Instalamos Las Dependencias
+## Instalamos Las Dependencias
 
 Para comenzar, clona el repositorio del proyecto en tu máquina local:
 
@@ -26,7 +28,7 @@ Esto instalará las siguientes dependencias:
     path: Módulo para manejar rutas de archivos (incluido en Node.js por defecto).
     os: Módulo para acceder a información del sistema operativo (incluido en Node.js por defecto).
 
-# Modificaciones para Acceso Externo
+## Modificaciones para Acceso Externo
 
 Por defecto, la aplicación está configurada para aceptar solicitudes únicamente desde localhost. Si deseas permitir el acceso desde otros dispositivos en la misma red local, debes modificar el archivo public/script.js para que maneje solicitudes desde otros dispositivos.
 
@@ -42,7 +44,7 @@ Cambia localhost por la dirección IP de la máquina donde está ejecutando el s
 
 Guarda los cambios en public/script.js.
 
-# Ejecución
+## Ejecución
 
 Para iniciar el servidor, asegúrate de estar en la raíz del proyecto y ejecuta el siguiente comando:
 
@@ -54,6 +56,6 @@ Uso
     Interfaz Web: Abre http://localhost:3000 en tu navegador para acceder a la interfaz web de DreamFinder-Web.
     Buscar Información: Utiliza la barra de búsqueda para encontrar credenciales de inicio de sesión o direcciones IP.
 
-# Preview:
+## Preview:
 
 ![Preview](https://github.com/GhostIsLegit/DreamFinder-Web-Source/blob/main/prev.png)
