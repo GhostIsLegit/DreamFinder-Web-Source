@@ -51,3 +51,8 @@ Uso
 
     Interfaz Web: Abre http://localhost:3000 en tu navegador para acceder a la interfaz web de DreamFinder-Web.
     Buscar Información: Utiliza la barra de búsqueda para encontrar credenciales de inicio de sesión o direcciones IP.
+
+
+Preview:
+
+![Preview](https://github.com/GhostIsLegit/DreamFinder-Web-Source/blob/main/aa.png)
