@@ -55,4 +55,4 @@ Uso
 
 Preview:
 
-![Preview](https://github.com/GhostIsLegit/DreamFinder-Web-Source/blob/main/aa.png)
+![Preview](https://github.com/GhostIsLegit/DreamFinder-Web-Source/blob/main/prev.png)
