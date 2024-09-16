@@ -2,7 +2,7 @@ DreamFinder es una herramienta web diseñada para buscar y visualizar informaci�
 
 Advertencia de Seguridad: Este proyecto no está diseñado para ser expuesto a internet como un servidor real. No cuenta con medidas de seguridad adecuadas para entornos de producción y está destinado únicamente para uso local y en entornos controlados. El uso de esta herramienta para fines malintencionados puede ser ilegal y está sujeto a sanciones. No lo utilices en un entorno accesible públicamente sin antes implementar las debidas medidas de seguridad y considera las implicaciones legales y éticas de su uso.
 
-Nota sobre las Bases de Datos: No proporcionamos bases de datos para las búsquedas. Debes crear la carpeta dbs en la raíz del proyecto y colocar tus propias bases de datos en esta carpeta. Asegúrate de que los archivos de base de datos estén en el formato y ubicación esperados para que la aplicación pueda acceder a ellos correctamente.
+Nota sobre las Bases de Datos: No se proporcionaran bases de datos para las búsquedas. Debes crear la carpeta dbs en la raíz del proyecto y colocar tus propias bases de datos en esta carpeta. Asegúrate de que los archivos de base de datos estén en el formato y ubicación esperados para que la aplicación pueda acceder a ellos correctamente.
 
 Para comenzar, clona el repositorio del proyecto en tu máquina local:
 
