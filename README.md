@@ -51,7 +51,8 @@ Para iniciar el servidor, asegúrate de estar en la raíz del proyecto y ejecuta
     node server/server.js
 
 Durante la ejecución, el servidor mostrará las direcciones IP locales disponibles en la consola. El servidor estará disponible en http://localhost:3000 y en las IPs locales que se muestren durante la ejecución en el puerto 3000.
-Uso
+
+Uso:
 
     Interfaz Web: Abre http://localhost:3000 en tu navegador para acceder a la interfaz web de DreamFinder-Web.
     Buscar Información: Utiliza la barra de búsqueda para encontrar credenciales de inicio de sesión o direcciones IP.
