@@ -59,4 +59,4 @@ Uso:
 
 ## Preview:
 
-![Preview]([https://imgur.com/a/4P5CKLd])
+![Preview](https://imgur.com/a/4P5CKLd)
