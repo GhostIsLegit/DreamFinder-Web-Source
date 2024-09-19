@@ -59,4 +59,4 @@ Uso:
 
 ## Preview:
 
-![Preview](https://github.com/GhostIsLegit/DreamFinder-Web-Source/blob/main/prev.png)
+![Preview]([https://github.com/GhostIsLegit/DreamFinder-Web-Source/blob/main/prev.png](https://imgur.com/a/4P5CKLd))
